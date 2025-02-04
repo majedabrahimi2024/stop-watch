@@ -66,15 +66,15 @@ class Timer extends React.Component {
             <div>
                 <div className='timer'>
                 <div>{`${h > 9 ? h: "0"+h}`} : {`${m > 9 ? m: "0"+m}`} : {`${s > 9 ? s: "0"+s}`}</div>
-                {/* <button onClick={this.props.handleSetTitle}>change title</button> */}
                 </div>
                 <div className='btnContainer'>
                     <button className='btn startBtn' onClick={this.startCount}>start</button>
                     <button className='btn stopBtn' onClick={this.stopCount}>stop</button>
                     <button className='btn resetBtn' onClick={this.resetCount}>reset</button>
+                    <button className='btn' onClick={this.props.handleSetIsLight}>{this.props.isLight ? "Dark" : "Light"}</button>
                 </div>
             </div>
         )
     }
 };
-export default Timer;
+export default Timer; 
