@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles.css';
+import TimeList from './TimeList';
+import { TestContext } from './TestContext';
 
 let interval;
+let h, m, s;
 class Timer extends React.Component {
     constructor(){
       super();
@@ -12,7 +15,10 @@ class Timer extends React.Component {
         second:0,
         isStart:false,
       }
-    }
+    };
+
+    static contextType = TestContext;
+
     startCount = ()=>{
         if(this.state.isStart === false){
             this.setState({
@@ -44,12 +50,14 @@ class Timer extends React.Component {
             },1000)
         }
     }
+
     stopCount = ()=>{
         this.setState({
             isStart:false,
         })
         clearInterval(interval)
     }
+
     resetCount = ()=>{
         this.stopCount();
         this.setState({
@@ -57,15 +65,22 @@ class Timer extends React.Component {
             minute:0,
             second:0,
         });
+        this.context.setTimeArr([]);
     };
+
+    handleSaveTime = ()=>{
+        let newTime = document.querySelector(".timer").innerText;
+        this.context.setTimeArr([...this.context.timeArr, newTime]);
+    };
+
     render(){
-        let h = this.state.hour;
-        let m = this.state.minute;
-        let s = this.state.second;
+        h = this.state.hour;
+        m = this.state.minute;
+        s = this.state.second;
         return(
             <div>
-                <div className='timer'>
-                <div>{`${h > 9 ? h: "0"+h}`} : {`${m > 9 ? m: "0"+m}`} : {`${s > 9 ? s: "0"+s}`}</div>
+                <div className='timer' onClick={this.handleSaveTime} style={{color:this.context.color}}>
+                    <div>{`${h > 9 ? h: "0"+h} : ${m > 9 ? m: "0"+m} : ${s > 9 ? s: "0"+s}`}</div>
                 </div>
                 <div className='btnContainer'>
                     <button className='btn startBtn' onClick={this.startCount}>start</button>

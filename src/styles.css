@@ -12,6 +12,7 @@ body{
     height:100vh;
     color:white;
 }
+/* timer */
 .timer{
     margin:20px auto;
     width: 200px;
@@ -24,7 +25,15 @@ body{
     flex-flow:column wrap;
     background-color: black;
     color:white;
+    transition:0.4s;
 }
+.timer:hover{
+    box-shadow: 0 0 10px dodgerblue;
+}
+.timer:hover div{
+    cursor:pointer;
+}
+/* main-container */
 .main-container{
     padding:30px;
     border-radius: 20px;
@@ -36,6 +45,7 @@ body{
 .main-container:hover{
     box-shadow: 0 0 10px dodgerblue;
 }
+/* button styles */
 .btnContainer{
     display: flex;
     justify-content: center;
@@ -70,4 +80,8 @@ body{
 .resetBtn{
     background-color: rgb(0, 162, 255);
     color:white;
+}
+/* time list styles */
+.time-list:hover{
+    cursor: pointer;
 }
