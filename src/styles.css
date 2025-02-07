@@ -38,7 +38,7 @@ body{
     padding:30px;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 0 10px white;
+    box-shadow: 0 0 5px white;
     transition:0.4s;
     background-color: #2c2c2c;
 }
@@ -65,10 +65,6 @@ body{
     border:none;
     transition:0.5s;
 }
-.btn:hover{
-    letter-spacing: 2px;
-    box-shadow: 0 0 10px white;
-}
 .startBtn{
     background-color: green;
     color:white;
@@ -80,6 +76,10 @@ body{
 .resetBtn{
     background-color: rgb(0, 162, 255);
     color:white;
+}
+.btn:hover{
+    letter-spacing: 2px;
+    box-shadow: 0 0 10px white;
 }
 /* time list styles */
 .time-list:hover{
