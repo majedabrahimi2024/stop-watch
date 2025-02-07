@@ -1,13 +1,13 @@
 import React , {useState,useEffect} from "react";
 import ReactDOM from "react-dom";
-import Header from "./Header.js";
+import Hello from "./Hello.js";
 import Timer from "./Timer.js";
 import './styles.css';
 import TimeList from "./TimeList.jsx";
 import { TestContext } from "./TestContext.jsx";
 
 const App = ()=>{
-  const [title,setTitle] = useState("Stop Watch");
+  const [title,setTitle] = useState("hello world !");
   const [isLight,setIsLight] = useState(false);
   const [timeArr,setTimeArr] = useState([]);
 
@@ -24,12 +24,12 @@ const App = ()=>{
 
   return (
     <TestContext.Provider value={{
-      timeArr,
-      setTimeArr,
+      timeArr:timeArr,
+      setTimeArr:setTimeArr,
       }}>
       <div className="main" style={{backgroundColor : isLight ? "white": "gray"}}>
       <div className="main-container">
-        <Header title={title}/>
+        <Hello title={title}/>
         <Timer
           isLight={isLight}
           handleSetIsLight={handleSetIsLight}
