@@ -7,7 +7,7 @@ import TimeList from "./TimeList.jsx";
 import { TestContext } from "./TestContext.jsx";
 
 const App = ()=>{
-  const [title,setTitle] = useState("hello world !");
+  const [title,setTitle] = useState("stop watch");
   const [isLight,setIsLight] = useState(false);
   const [timeArr,setTimeArr] = useState([]);
 
